@@ -98,9 +98,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const lightboxImg   = document.getElementById('lightbox-img');
   const lightboxClose = document.getElementById('lightbox-close');
 
-  document.querySelectorAll('.portfolio-item img').forEach(img => {
-    img.style.cursor = 'zoom-in';
-    img.addEventListener('click', () => {
+  document.querySelectorAll('.portfolio-item').forEach(item => {
+    item.style.cursor = 'zoom-in';
+    item.addEventListener('click', () => {
+      const img = item.querySelector('img');
       lightboxImg.src = img.src;
       lightboxImg.alt = img.alt;
       lightbox.classList.add('active');
