@@ -742,8 +742,8 @@ em { font-style: italic; }
 }
 
 .lightbox__img {
-  max-width: 92vw;
-  max-height: 90vh;
+  max-width: min(86vw, 920px);
+  max-height: 82vh;
   object-fit: contain;
   border-radius: 2px;
   transform: scale(0.96);
@@ -753,6 +753,13 @@ em { font-style: italic; }
 
 .lightbox.active .lightbox__img {
   transform: scale(1);
+}
+
+@media (max-width: 580px) {
+  .lightbox__img {
+    max-width: 96vw;
+    max-height: 68vh;
+  }
 }
 
 .lightbox__close {
