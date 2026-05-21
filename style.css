@@ -657,6 +657,22 @@ em { font-style: italic; }
 }
 
 /* ═══════════════════════════════════════════
+   SEO TAGS
+═══════════════════════════════════════════ */
+.seo-tags {
+  background: var(--creme-suave);
+  padding: 14px 0;
+  border-top: 1px solid rgba(90,101,69,0.06);
+}
+.seo-tags .container {
+  font-size: 11px;
+  color: rgba(90, 101, 69, 0.28);
+  text-align: center;
+  line-height: 2;
+  letter-spacing: 0.3px;
+}
+
+/* ═══════════════════════════════════════════
    FOOTER
 ═══════════════════════════════════════════ */
 .footer {
