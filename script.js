@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Monta a mensagem
       const ambienteLabel = document.getElementById('ambiente').options[document.getElementById('ambiente').selectedIndex]?.text || '';
-      let msg = `Olá Casa Baobá, vim pelo anúncio e quero um orçamento.`;
+      let msg = `Olá, vim pelo site e quero um orçamento.`;
       msg += `\n\n*Nome:* ${nome}`;
       msg += `\n*WhatsApp:* ${whatsapp}`;
       if (ambienteLabel && ambienteLabel !== 'Selecione...') {
