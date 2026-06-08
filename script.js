@@ -8,9 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const revealEls = document.querySelectorAll('.reveal');
 
   const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        // Staggered delay para elementos em sequência
         const siblings = [...entry.target.parentElement.querySelectorAll('.reveal')];
         const idx = siblings.indexOf(entry.target);
         entry.target.style.transitionDelay = `${idx * 80}ms`;
@@ -24,18 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ─── 2. FILTRO DE PORTFÓLIO ────────────────────────────────────
-  const filtroBtns = document.querySelectorAll('.filtro-btn');
+  const filtroBtns    = document.querySelectorAll('.filtro-btn');
   const portfolioItems = document.querySelectorAll('.portfolio-item');
 
   filtroBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const cat = btn.dataset.categoria;
-
-      // Atualiza botão ativo
       filtroBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-
-      // Filtra itens com fade
       portfolioItems.forEach(item => {
         const match = cat === 'todos' || item.dataset.categoria === cat;
         if (match) {
@@ -49,39 +44,121 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  // ─── 3. FORMULÁRIO → WHATSAPP ──────────────────────────────────
-  const btnEnviar = document.getElementById('btn-enviar');
+  // ─── 3. MODAL DE QUALIFICAÇÃO + WHATSAPP ──────────────────────
+  const modal        = document.getElementById('wpp-modal');
+  const modalOverlay = document.getElementById('wpp-modal-overlay');
+  const modalClose   = document.getElementById('wpp-modal-close');
+  const modalSubmit  = document.getElementById('wpp-modal-submit');
+  const WA_NUMBER    = '5513997260565';
 
+  function abrirModal(prefill = {}) {
+    document.getElementById('m-nome').value     = prefill.nome     || '';
+    document.getElementById('m-whatsapp').value = prefill.whatsapp || '';
+    document.getElementById('m-ambiente').value = prefill.ambiente || '';
+    document.getElementById('m-mensagem').value = prefill.mensagem || '';
+    ['m-nome', 'm-whatsapp'].forEach(id => {
+      document.getElementById(id).classList.remove('field-error');
+    });
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => document.getElementById('m-nome').focus(), 100);
+  }
+
+  function fecharModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  modalClose.addEventListener('click', fecharModal);
+  modalOverlay.addEventListener('click', fecharModal);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') fecharModal(); });
+
+  // Intercepta todos os links wa.me da página
+  document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      abrirModal();
+    });
+  });
+
+  // Intercepta btn-enviar do formulário da página (com prefill)
+  const btnEnviar = document.getElementById('btn-enviar');
   if (btnEnviar) {
     btnEnviar.addEventListener('click', () => {
-      const nome      = document.getElementById('nome').value.trim();
-      const whatsapp  = document.getElementById('whatsapp').value.trim();
-      const ambiente  = document.getElementById('ambiente').value;
-      const mensagem  = document.getElementById('mensagem').value.trim();
-
-      // Validação básica
-      if (!nome || !whatsapp) {
-        shake(btnEnviar);
-        alert('Por favor, preencha seu nome e WhatsApp para continuar.');
-        return;
-      }
-
-      // Monta a mensagem
-      const ambienteLabel = document.getElementById('ambiente').options[document.getElementById('ambiente').selectedIndex]?.text || '';
-      let msg = `Olá, vim pelo site e quero um orçamento.`;
-      msg += `\n\n*Nome:* ${nome}`;
-      msg += `\n*WhatsApp:* ${whatsapp}`;
-      if (ambienteLabel && ambienteLabel !== 'Selecione...') {
-        msg += `\n*Ambiente:* ${ambienteLabel}`;
-      }
-      if (mensagem) {
-        msg += `\n*Mensagem:* ${mensagem}`;
-      }
-
-      const url = `https://wa.me/5513997260565?text=${encodeURIComponent(msg)}`;
-      window.open(url, '_blank');
+      abrirModal({
+        nome:     document.getElementById('nome').value.trim(),
+        whatsapp: document.getElementById('whatsapp').value.trim(),
+        ambiente: document.getElementById('ambiente').value,
+        mensagem: document.getElementById('mensagem').value.trim()
+      });
     });
   }
+
+  // Máscara de telefone brasileiro
+  document.getElementById('m-whatsapp').addEventListener('input', function () {
+    let v = this.value.replace(/\D/g, '').substring(0, 11);
+    if (v.length > 6)      v = `(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;
+    else if (v.length > 2) v = `(${v.slice(0,2)}) ${v.slice(2)}`;
+    else if (v.length > 0) v = `(${v}`;
+    this.value = v;
+  });
+
+  // Envio do modal
+  modalSubmit.addEventListener('click', () => {
+    const nome      = document.getElementById('m-nome').value.trim();
+    const whatsapp  = document.getElementById('m-whatsapp').value.trim();
+    const ambienteEl = document.getElementById('m-ambiente');
+    const mensagem  = document.getElementById('m-mensagem').value.trim();
+    const ambienteLabel = ambienteEl.options[ambienteEl.selectedIndex]?.text || '';
+
+    // Validação
+    let valido = true;
+    ['m-nome', 'm-whatsapp'].forEach(id => {
+      document.getElementById(id).classList.remove('field-error');
+    });
+    if (!nome) {
+      document.getElementById('m-nome').classList.add('field-error');
+      valido = false;
+    }
+    if (!whatsapp) {
+      document.getElementById('m-whatsapp').classList.add('field-error');
+      valido = false;
+    }
+    if (!valido) {
+      shake(modalSubmit);
+      return;
+    }
+
+    // Disparo do evento de conversão no GTM
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'lead_whatsapp_enviado',
+      lead_nome: nome,
+      lead_ambiente: ambienteLabel !== 'Selecione...' ? ambienteLabel : 'Não informado'
+    });
+
+    // Monta a mensagem formatada
+    let msg = `Olá, vim pelo site e quero um orçamento.`;
+    msg += `\n\n*Nome:* ${nome}`;
+    msg += `\n*WhatsApp:* ${whatsapp}`;
+    if (ambienteLabel && ambienteLabel !== 'Selecione...') {
+      msg += `\n*Ambiente:* ${ambienteLabel}`;
+    }
+    if (mensagem) {
+      msg += `\n*Mensagem:* ${mensagem}`;
+    }
+
+    // Redireciona para WhatsApp e fecha modal
+    window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+    fecharModal();
+  });
+
+  // Remove erro ao digitar
+  ['m-nome', 'm-whatsapp'].forEach(id => {
+    document.getElementById(id).addEventListener('input', function () {
+      this.classList.remove('field-error');
+    });
+  });
 
 
   // ─── 4. HELPER: SHAKE ANIMATION ───────────────────────────────
@@ -116,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   lightboxClose.addEventListener('click', closeLightbox);
   lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeLightbox(); fecharModal(); } });
 
 
   // ─── 6. SMOOTH SCROLL (fallback para Safari) ──────────────────
@@ -133,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// ─── 6. ANIMAÇÕES CSS EXTRAS (injetadas via JS) ─────────────────
+// ─── 7. ANIMAÇÕES CSS EXTRAS (injetadas via JS) ─────────────────
 const style = document.createElement('style');
 style.textContent = `
   @keyframes fadeIn {
