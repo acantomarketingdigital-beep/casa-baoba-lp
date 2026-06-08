@@ -55,7 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('m-nome').value     = prefill.nome     || '';
     document.getElementById('m-whatsapp').value = prefill.whatsapp || '';
     document.getElementById('m-ambiente').value = prefill.ambiente || '';
-    document.getElementById('m-mensagem').value = prefill.mensagem || '';
     ['m-nome', 'm-whatsapp'].forEach(id => {
       document.getElementById(id).classList.remove('field-error');
     });
