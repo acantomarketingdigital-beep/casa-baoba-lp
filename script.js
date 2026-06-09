@@ -107,7 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const nome      = document.getElementById('m-nome').value.trim();
     const whatsapp  = document.getElementById('m-whatsapp').value.trim();
     const ambienteEl = document.getElementById('m-ambiente');
-    const mensagem  = document.getElementById('m-mensagem').value.trim();
     const ambienteLabel = ambienteEl.options[ambienteEl.selectedIndex]?.text || '';
 
     // Validação
@@ -142,9 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
     msg += `\n*WhatsApp:* ${whatsapp}`;
     if (ambienteLabel && ambienteLabel !== 'Selecione...') {
       msg += `\n*Ambiente:* ${ambienteLabel}`;
-    }
-    if (mensagem) {
-      msg += `\n*Mensagem:* ${mensagem}`;
     }
 
     // Redireciona para WhatsApp e fecha modal
