@@ -72,24 +72,33 @@ document.addEventListener('DOMContentLoaded', () => {
   modalOverlay.addEventListener('click', fecharModal);
   document.addEventListener('keydown', e => { if (e.key === 'Escape') fecharModal(); });
 
-  // Intercepta todos os links wa.me da página
-  document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      abrirModal();
-    });
-  });
-
-  // Intercepta btn-enviar do formulário da página (com prefill)
+  // btn-enviar: envia direto para WhatsApp com dados do formulário
   const btnEnviar = document.getElementById('btn-enviar');
   if (btnEnviar) {
     btnEnviar.addEventListener('click', () => {
-      abrirModal({
-        nome:     document.getElementById('nome').value.trim(),
-        whatsapp: document.getElementById('whatsapp').value.trim(),
-        ambiente: document.getElementById('ambiente').value,
-        mensagem: document.getElementById('mensagem').value.trim()
-      });
+      const nome     = document.getElementById('nome').value.trim();
+      const whatsapp = document.getElementById('whatsapp').value.trim();
+      const ambienteEl = document.getElementById('ambiente');
+      const mensagem = document.getElementById('mensagem').value.trim();
+      const ambienteLabel = ambienteEl.options[ambienteEl.selectedIndex]?.text || '';
+
+      if (!nome || !whatsapp) {
+        shake(btnEnviar);
+        alert('Por favor, preencha seu nome e WhatsApp para continuar.');
+        return;
+      }
+
+      let msg = `Vim do site gostaria de falar com um consultor.`;
+      msg += `\n\n*Nome:* ${nome}`;
+      msg += `\n*WhatsApp:* ${whatsapp}`;
+      if (ambienteLabel && ambienteLabel !== 'Selecione...') {
+        msg += `\n*Ambiente:* ${ambienteLabel}`;
+      }
+      if (mensagem) {
+        msg += `\n*Mensagem:* ${mensagem}`;
+      }
+
+      window.open(`https://wa.me/5513997260565?text=${encodeURIComponent(msg)}`, '_blank');
     });
   }
 
