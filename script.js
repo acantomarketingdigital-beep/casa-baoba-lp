@@ -2,6 +2,18 @@
    CASA BAOBÁ — script.js
 ═══════════════════════════════════════════ */
 
+// ─── 0. CAPTURA CLICK IDs (Google Ads / Meta Ads) ──────────────
+var _gclid  = new URLSearchParams(window.location.search).get('gclid')  || sessionStorage.getItem('gclid');
+var _fbclid = new URLSearchParams(window.location.search).get('fbclid') || sessionStorage.getItem('fbclid');
+if (_gclid)  sessionStorage.setItem('gclid',  _gclid);
+if (_fbclid) sessionStorage.setItem('fbclid', _fbclid);
+
+function appendClickIds(msg) {
+  if (_gclid)  msg += '\n[ref: GCLID_'  + _gclid  + ']';
+  if (_fbclid) msg += '\n[ref: FBCLID_' + _fbclid + ']';
+  return msg;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
   // ─── 1. REVEAL ON SCROLL ───────────────────────────────────────
@@ -98,6 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
         msg += `\n*Mensagem:* ${mensagem}`;
       }
 
+      msg = appendClickIds(msg);
       window.open(`https://wa.me/5513997260565?text=${encodeURIComponent(msg)}`, '_blank');
     });
   }
@@ -153,6 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Redireciona para WhatsApp e fecha modal
+    msg = appendClickIds(msg);
     window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
     fecharModal();
   });
