@@ -1148,6 +1148,167 @@ em { font-style: italic; }
 .whatsapp-float:hover .whatsapp-float__tooltip { opacity: 1; }
 
 /* ═══════════════════════════════════════════
+   TOPNAV STICKY
+═══════════════════════════════════════════ */
+.topnav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 900;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 12px clamp(20px, 5vw, 48px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 24px rgba(0,0,0,0.08);
+  transform: translateY(-100%);
+  transition: transform 0.35s ease;
+}
+
+.topnav.visible { transform: translateY(0); }
+
+.topnav__logo img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+
+.topnav__cta {
+  font-size: 13px;
+  padding: 11px 22px;
+  background: var(--verde-baoba);
+  color: var(--areia-quente);
+}
+.topnav__cta:hover {
+  background: var(--verde-escuro);
+}
+.topnav__arr { font-size: 16px; }
+
+/* ═══════════════════════════════════════════
+   NÚMEROS / PROVA SOCIAL
+═══════════════════════════════════════════ */
+.numeros {
+  background: var(--verde-baoba);
+  padding: 28px 0;
+}
+
+.numeros__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.numero-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 36px;
+}
+
+.numero-item strong {
+  font-family: var(--font-titulo);
+  font-size: clamp(26px, 3.5vw, 38px);
+  color: var(--areia-quente);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.numero-item span {
+  font-size: 12px;
+  color: var(--areia-quente);
+  opacity: 0.7;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+
+.numero-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(234,223,207,0.25);
+}
+
+/* ═══════════════════════════════════════════
+   PORTFOLIO CTA (ao final da grade)
+═══════════════════════════════════════════ */
+.portfolio__cta {
+  text-align: center;
+  padding: 48px clamp(20px, 5vw, 48px) 0;
+}
+
+.portfolio__cta p {
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 24px;
+}
+
+.btn-cta--outline-verde {
+  background: transparent;
+  color: var(--verde-baoba);
+  border: 1.5px solid var(--verde-baoba);
+  border-radius: 100px;
+}
+.btn-cta--outline-verde:hover {
+  background: var(--verde-baoba);
+  color: var(--areia-quente);
+}
+
+/* ═══════════════════════════════════════════
+   CTA QUIZ (após galeria)
+═══════════════════════════════════════════ */
+.cta-quiz {
+  background: var(--verde-escuro);
+  padding: var(--section-padding);
+}
+
+.cta-quiz__inner {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.cta-quiz__inner h2 {
+  font-size: var(--h2);
+  color: var(--areia-quente);
+  margin-bottom: 20px;
+}
+
+.cta-quiz__inner > p {
+  font-size: clamp(15px, 1.8vw, 18px);
+  color: var(--areia-quente);
+  opacity: 0.8;
+  margin-bottom: 36px;
+  line-height: 1.7;
+}
+
+.cta-quiz__lista {
+  list-style: none;
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.cta-quiz__lista li {
+  font-size: 14px;
+  color: var(--areia-quente);
+  opacity: 0.65;
+  letter-spacing: 0.3px;
+}
+
+/* ═══════════════════════════════════════════
+   FOOTER — botão quiz
+═══════════════════════════════════════════ */
+.footer__quiz-btn {
+  margin-top: 8px;
+  font-size: 13px;
+  padding: 12px 28px;
+}
+
+/* ═══════════════════════════════════════════
    RESPONSIVO — TABLET
 ═══════════════════════════════════════════ */
 @media (max-width: 900px) {
@@ -1217,4 +1378,12 @@ em { font-style: italic; }
     width: 54px;
     height: 54px;
   }
+
+  .numero-item { padding: 8px 18px; }
+  .numero-divider { height: 28px; }
+
+  .topnav__logo img { height: 38px; }
+  .topnav__cta { font-size: 12px; padding: 10px 16px; }
+
+  .cta-quiz__lista { gap: 6px; }
 }

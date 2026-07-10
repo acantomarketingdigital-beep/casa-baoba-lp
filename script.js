@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ─── 2. FILTRO DE PORTFÓLIO ────────────────────────────────────
-  const filtroBtns    = document.querySelectorAll('.filtro-btn');
+  const filtroBtns     = document.querySelectorAll('.filtro-btn');
   const portfolioItems = document.querySelectorAll('.portfolio-item');
 
   filtroBtns.forEach(btn => {
@@ -56,43 +56,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  // ─── 3. MODAL DE QUALIFICAÇÃO + WHATSAPP ──────────────────────
-  const modal        = document.getElementById('wpp-modal');
-  const modalOverlay = document.getElementById('wpp-modal-overlay');
-  const modalClose   = document.getElementById('wpp-modal-close');
-  const modalSubmit  = document.getElementById('wpp-modal-submit');
-  const WA_NUMBER    = '5513997260565';
-
-  function abrirModal(prefill = {}) {
-    document.getElementById('m-nome').value     = prefill.nome     || '';
-    document.getElementById('m-whatsapp').value = prefill.whatsapp || '';
-    document.getElementById('m-ambiente').value = prefill.ambiente || '';
-    ['m-nome', 'm-whatsapp'].forEach(id => {
-      document.getElementById(id).classList.remove('field-error');
-    });
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-    setTimeout(() => document.getElementById('m-nome').focus(), 100);
-  }
-
-  function fecharModal() {
-    modal.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  modalClose.addEventListener('click', fecharModal);
-  modalOverlay.addEventListener('click', fecharModal);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') fecharModal(); });
-
-  // btn-enviar: envia direto para WhatsApp com dados do formulário
+  // ─── 3. FORMULÁRIO LEGADO (btn-enviar) ────────────────────────
   const btnEnviar = document.getElementById('btn-enviar');
   if (btnEnviar) {
     btnEnviar.addEventListener('click', () => {
-      const nome     = document.getElementById('nome').value.trim();
-      const whatsapp = document.getElementById('whatsapp').value.trim();
+      const nome       = document.getElementById('nome')?.value.trim();
+      const whatsapp   = document.getElementById('whatsapp')?.value.trim();
       const ambienteEl = document.getElementById('ambiente');
-      const mensagem = document.getElementById('mensagem').value.trim();
-      const ambienteLabel = ambienteEl.options[ambienteEl.selectedIndex]?.text || '';
+      const ambienteLabel = ambienteEl?.options[ambienteEl.selectedIndex]?.text || '';
 
       if (!nome || !whatsapp) {
         shake(btnEnviar);
@@ -106,85 +77,28 @@ document.addEventListener('DOMContentLoaded', () => {
       if (ambienteLabel && ambienteLabel !== 'Selecione...') {
         msg += `\n*Ambiente:* ${ambienteLabel}`;
       }
-      if (mensagem) {
-        msg += `\n*Mensagem:* ${mensagem}`;
-      }
-
       msg = appendClickIds(msg);
       window.open(`https://wa.me/5513997260565?text=${encodeURIComponent(msg)}`, '_blank');
     });
   }
 
-  // Máscara de telefone brasileiro
-  document.getElementById('m-whatsapp').addEventListener('input', function () {
-    let v = this.value.replace(/\D/g, '').substring(0, 11);
-    if (v.length > 6)      v = `(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;
-    else if (v.length > 2) v = `(${v.slice(0,2)}) ${v.slice(2)}`;
-    else if (v.length > 0) v = `(${v}`;
-    this.value = v;
-  });
-
-  // Envio do modal
-  modalSubmit.addEventListener('click', () => {
-    const nome      = document.getElementById('m-nome').value.trim();
-    const whatsapp  = document.getElementById('m-whatsapp').value.trim();
-    const ambienteEl = document.getElementById('m-ambiente');
-    const ambienteLabel = ambienteEl.options[ambienteEl.selectedIndex]?.text || '';
-
-    // Validação
-    let valido = true;
-    ['m-nome', 'm-whatsapp'].forEach(id => {
-      document.getElementById(id).classList.remove('field-error');
+  // Máscara de telefone (só se o campo existir)
+  const mWa = document.getElementById('m-whatsapp');
+  if (mWa) {
+    mWa.addEventListener('input', function () {
+      let v = this.value.replace(/\D/g, '').substring(0, 11);
+      if (v.length > 6)      v = `(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;
+      else if (v.length > 2) v = `(${v.slice(0,2)}) ${v.slice(2)}`;
+      else if (v.length > 0) v = `(${v}`;
+      this.value = v;
     });
-    if (!nome) {
-      document.getElementById('m-nome').classList.add('field-error');
-      valido = false;
-    }
-    if (!whatsapp) {
-      document.getElementById('m-whatsapp').classList.add('field-error');
-      valido = false;
-    }
-    if (!valido) {
-      shake(modalSubmit);
-      return;
-    }
-
-    // Disparo do evento de conversão no GTM
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: 'lead_whatsapp_enviado',
-      lead_nome: nome,
-      lead_ambiente: ambienteLabel !== 'Selecione...' ? ambienteLabel : 'Não informado'
-    });
-
-    // Monta a mensagem formatada
-    let msg = `Olá, vim pelo site e quero um orçamento.`;
-    msg += `\n\n*Nome:* ${nome}`;
-    msg += `\n*WhatsApp:* ${whatsapp}`;
-    if (ambienteLabel && ambienteLabel !== 'Selecione...') {
-      msg += `\n*Ambiente:* ${ambienteLabel}`;
-    }
-
-    // Redireciona para WhatsApp e fecha modal
-    msg = appendClickIds(msg);
-    window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
-    fecharModal();
-  });
-
-  // Remove erro ao digitar
-  ['m-nome', 'm-whatsapp'].forEach(id => {
-    document.getElementById(id).addEventListener('input', function () {
-      this.classList.remove('field-error');
-    });
-  });
+  }
 
 
   // ─── 4. HELPER: SHAKE ANIMATION ───────────────────────────────
   function shake(el) {
     el.style.animation = 'shake 0.4s ease';
-    el.addEventListener('animationend', () => {
-      el.style.animation = '';
-    }, { once: true });
+    el.addEventListener('animationend', () => { el.style.animation = ''; }, { once: true });
   }
 
 
@@ -194,10 +108,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const lightboxClose = document.getElementById('lightbox-close');
 
   function openLightbox(src, alt) {
+    if (!lightbox) return;
     lightboxImg.src = src;
     lightboxImg.alt = alt;
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
   }
 
   document.querySelectorAll('.portfolio-item').forEach(item => {
@@ -208,14 +129,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  function closeLightbox() {
-    lightbox.classList.remove('active');
-    document.body.style.overflow = '';
-  }
+  if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+  if (lightbox)      lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
 
-  lightboxClose.addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeLightbox(); fecharModal(); } });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLightbox();
+  });
 
 
   // ─── 6. CARROSSÉIS — DRAG SCROLL + LIGHTBOX ──────────────────
@@ -267,6 +186,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
+  // ─── 7. TOPNAV STICKY ─────────────────────────────────────────
+  const topnav = document.getElementById('topnav');
+  if (topnav) {
+    window.addEventListener('scroll', () => {
+      topnav.classList.toggle('visible', window.scrollY > 120);
+    }, { passive: true });
+  }
+
+
   // ─── 8. SMOOTH SCROLL (fallback para Safari) ──────────────────
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
@@ -281,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// ─── 7. ANIMAÇÕES CSS EXTRAS (injetadas via JS) ─────────────────
+// ─── 9. ANIMAÇÕES CSS EXTRAS (injetadas via JS) ─────────────────
 const style = document.createElement('style');
 style.textContent = `
   @keyframes fadeIn {
