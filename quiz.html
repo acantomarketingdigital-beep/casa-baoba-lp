@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PFZQ8HLK');</script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Quiz gratuito: descubra o ambiente planejado ideal para você em 5 perguntas. Proposta personalizada de móveis planejados de alto padrão — Praia Grande, Santos e Baixada Santista." />
+  <title>Quiz — Descubra Seu Ambiente Planejado Ideal | Casa Baobá</title>
+
+  <meta name="geo.region" content="BR-SP" />
+  <meta name="geo.placename" content="Praia Grande, São Paulo, Brasil" />
+  <meta name="geo.position" content="-24.0056;-46.4105" />
+  <meta name="ICBM" content="-24.0056, -46.4105" />
+  <meta name="keywords" content="quiz móveis planejados, orçamento móveis planejados Praia Grande, cozinha planejada Baixada Santista, ambientes planejados Santos, móveis planejados alto padrão São Vicente" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:title" content="Quiz — Descubra Seu Ambiente Planejado Ideal | Casa Baobá" />
+  <meta property="og:description" content="5 perguntas rápidas para receber uma proposta personalizada de móveis planejados de alto padrão na Baixada Santista." />
+  <meta property="og:url" content="https://www.acasabaoba.com.br/quiz" />
+  <meta property="og:image" content="https://www.acasabaoba.com.br/images/COZINHA/1.jpeg" />
+  <link rel="canonical" href="https://www.acasabaoba.com.br/quiz" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Casa Baobá",
+    "description": "Ambientes planejados com design contemporâneo e sobriedade estética.",
+    "url": "https://www.acasabaoba.com.br",
+    "telephone": "+55-13-99726-0565",
+    "address": { "@type": "PostalAddress", "addressLocality": "Praia Grande", "addressRegion": "SP", "addressCountry": "BR" },
+    "areaServed": ["Praia Grande","Santos","São Vicente","Guarujá","Cubatão","Mongaguá","Itanhaém","Peruíbe","São Paulo"]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    @font-face {
+      font-family: 'Rische';
+      src: url('fonts/rische.otf') format('opentype');
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --verde:   #5A6545;
+      --escuro:  #3d4530;
+      --areia:   #EADFCF;
+      --creme:   #F2EBE0;
+      --branco:  #FFFFFF;
+      --texto:   #2C2C2C;
+      --ft:      'Rische', 'Playfair Display', Georgia, serif;
+      --fc:      'Open Sans', sans-serif;
+      --r:       12px;
+      --tr:      0.22s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--fc);
+      background: var(--creme);
+      background-image: radial-gradient(rgba(90,101,69,0.05) 1px, transparent 1px);
+      background-size: 22px 22px;
+      color: var(--texto);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+    img { display: block; max-width: 100%; }
+
+    /* ── WRAPPER ── */
+    .qw {
+      max-width: 660px;
+      margin: 0 auto;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 0 22px;
+    }
+
+    /* ── HEADER ── */
+    .qhead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0 14px;
+      border-bottom: 1px solid rgba(90,101,69,0.12);
+    }
+    .qhead__logo img { height: 46px; border-radius: 4px; }
+    .qhead__trust {
+      display: flex;
+      gap: 14px;
+      font-size: 12px;
+      color: var(--verde);
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+    .qhead__trust span::before { content: '✓ '; }
+    @media (max-width: 440px) { .qhead__trust span:first-child { display: none; } }
+
+    /* ── PROGRESS ── */
+    .qprog {
+      padding: 14px 0 2px;
+      visibility: hidden;
+    }
+    .qprog__meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: rgba(90,101,69,0.6);
+      margin-bottom: 7px;
+      text-transform: uppercase;
+    }
+    .qprog__bar { height: 3px; background: rgba(90,101,69,0.12); border-radius: 99px; overflow: hidden; }
+    .qprog__fill { height: 100%; background: var(--verde); border-radius: 99px; transition: width 0.5s ease; width: 0%; }
+
+    /* ── STEPS ── */
+    .quiz-main { flex: 1; }
+
+    .qs { display: none; padding: 36px 0 56px; }
+    .qs.active { display: block; animation: qIn 0.32s ease forwards; }
+    @keyframes qIn { from { opacity: 0; transform: translateX(18px); } to { opacity: 1; transform: translateX(0); } }
+
+    /* ── TYPOGRAPHY ── */
+    .qs__tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--verde);
+      margin-bottom: 18px;
+    }
+    .qs h1, .qs h2 {
+      font-family: var(--ft);
+      font-weight: 400;
+      color: var(--escuro);
+      line-height: 1.18;
+      margin-bottom: 14px;
+    }
+    .qs h1 { font-size: clamp(30px, 7vw, 44px); }
+    .qs h2 { font-size: clamp(24px, 5.5vw, 36px); }
+    .qs h1 em, .qs h2 em { font-style: italic; }
+    .qs__sub { font-size: 15px; color: #666; margin-bottom: 28px; line-height: 1.65; }
+    .qs__ctx {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(90,101,69,0.08);
+      border-radius: 99px;
+      padding: 5px 13px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--verde);
+      margin-bottom: 14px;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── CHECKLIST ── */
+    .qlist { list-style: none; margin: 18px 0 32px; display: flex; flex-direction: column; gap: 10px; }
+    .qlist li { display: flex; align-items: center; gap: 10px; font-size: 15px; color: #555; }
+    .qlist li::before {
+      content: '';
+      width: 20px; height: 20px; min-width: 20px;
+      border-radius: 50%;
+      background: var(--verde) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center no-repeat;
+    }
+
+    /* ── CARDS ── */
+    .qcards { display: grid; gap: 10px; margin-bottom: 28px; }
+    .qcards--3 { grid-template-columns: repeat(3, 1fr); }
+    .qcards--2 { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 460px) { .qcards--3 { grid-template-columns: repeat(2, 1fr); } }
+
+    .qcard {
+      background: var(--branco);
+      border: 1.5px solid rgba(90,101,69,0.14);
+      border-radius: var(--r);
+      padding: 18px 12px 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color var(--tr), transform var(--tr), box-shadow var(--tr);
+      display: flex; flex-direction: column; align-items: center; gap: 9px;
+      position: relative;
+      user-select: none;
+    }
+    .qcard:hover { border-color: var(--verde); transform: translateY(-2px); box-shadow: 0 6px 22px rgba(90,101,69,0.11); }
+    .qcard.sel { border-color: var(--verde); background: rgba(90,101,69,0.05); }
+    .qcard.sel::after {
+      content: '✓';
+      position: absolute; top: 7px; right: 9px;
+      width: 19px; height: 19px;
+      border-radius: 50%;
+      background: var(--verde);
+      color: white;
+      font-size: 11px; font-weight: 700;
+      line-height: 19px; text-align: center;
+    }
+    .qcard__icon { width: 44px; height: 44px; color: var(--verde); }
+    .qcard__icon svg { width: 100%; height: 100%; }
+    .qcard__lbl { font-size: 13px; font-weight: 700; color: var(--escuro); line-height: 1.3; }
+    .qcard__sub { font-size: 12px; color: #999; line-height: 1.4; }
+
+    /* ── OPTIONS ── */
+    .qopts { display: flex; flex-direction: column; gap: 9px; margin-bottom: 28px; }
+    .qopt {
+      background: var(--branco);
+      border: 1.5px solid rgba(90,101,69,0.14);
+      border-radius: var(--r);
+      padding: 16px 18px;
+      cursor: pointer;
+      transition: border-color var(--tr), transform var(--tr);
+      display: flex; align-items: center; gap: 13px;
+      user-select: none;
+    }
+    .qopt:hover { border-color: var(--verde); transform: translateX(3px); }
+    .qopt.sel { border-color: var(--verde); background: rgba(90,101,69,0.04); }
+    .qopt__radio {
+      width: 21px; height: 21px; min-width: 21px;
+      border-radius: 50%;
+      border: 2px solid rgba(90,101,69,0.28);
+      transition: all var(--tr);
+      position: relative;
+    }
+    .qopt.sel .qopt__radio { border-color: var(--verde); background: var(--verde); }
+    .qopt.sel .qopt__radio::after {
+      content: '';
+      position: absolute; inset: 4px;
+      border-radius: 50%; background: white;
+    }
+    .qopt__lbl { font-size: 15px; font-weight: 600; color: var(--escuro); display: block; }
+    .qopt__desc { font-size: 13px; color: #999; margin-top: 2px; }
+    .qopt--soft { border-color: rgba(217,79,79,0.15); }
+    .qopt--soft:hover { border-color: rgba(217,79,79,0.4); transform: none; }
+
+    /* ── PRICE BOX ── */
+    .qprice {
+      background: var(--branco);
+      border: 1.5px solid rgba(90,101,69,0.16);
+      border-radius: var(--r);
+      padding: 18px 20px;
+      margin-bottom: 20px;
+      display: flex; gap: 13px; align-items: flex-start;
+    }
+    .qprice__icon { font-size: 26px; margin-top: 1px; }
+    .qprice h4 { font-family: var(--ft); font-size: 17px; color: var(--escuro); font-weight: 400; margin-bottom: 5px; }
+    .qprice p { font-size: 14px; color: #666; line-height: 1.6; }
+    .qprice strong { color: var(--verde); }
+
+    /* ── INPUTS ── */
+    .qfg { margin-bottom: 14px; }
+    .qfg label {
+      display: block;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--verde); margin-bottom: 7px;
+    }
+    .qfg input {
+      width: 100%;
+      padding: 15px 17px;
+      border: 1.5px solid rgba(90,101,69,0.2);
+      border-radius: 10px;
+      font-family: var(--fc); font-size: 16px;
+      color: var(--texto); background: var(--branco);
+      outline: none;
+      transition: border-color 0.22s, box-shadow 0.22s;
+      appearance: none;
+    }
+    .qfg input:focus { border-color: var(--verde); box-shadow: 0 0 0 3px rgba(90,101,69,0.1); }
+    .qfg input.err { border-color: #d94f4f; box-shadow: 0 0 0 3px rgba(217,79,79,0.1); }
+    .qfg input::placeholder { color: #c0c0c0; }
+    .qfg__hint { font-size: 12px; color: #d94f4f; margin-top: 5px; display: none; }
+    .qfg input.err + .qfg__hint { display: block; }
+
+    /* ── BUTTONS ── */
+    .qbtn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      font-family: var(--fc); font-weight: 700; letter-spacing: 0.3px;
+      border-radius: 99px; cursor: pointer; border: none;
+      transition: all 0.25s ease;
+    }
+    .qbtn--main {
+      background: var(--verde); color: var(--areia);
+      width: 100%; padding: 18px;
+      font-size: 16px;
+      box-shadow: 0 4px 20px rgba(90,101,69,0.22);
+      margin-bottom: 4px;
+    }
+    .qbtn--main:hover { background: var(--escuro); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(90,101,69,0.28); }
+    .qbtn--back { background: none; color: #aaa; font-size: 13px; padding: 8px 0; margin-top: 6px; }
+    .qbtn--back:hover { color: var(--verde); }
+    .arr { display: inline-block; transition: transform 0.2s; }
+    .qbtn--main:hover .arr { transform: translateX(4px); }
+
+    /* ── MICRO ── */
+    .qmicro { font-size: 12px; color: #bbb; text-align: center; margin-top: 10px; line-height: 1.5; }
+
+    /* ── RESULT SCREENS ── */
+    .qresult { text-align: center; padding: 16px 0 40px; }
+    .qresult__ico {
+      width: 76px; height: 76px; border-radius: 50%;
+      background: rgba(90,101,69,0.08);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--verde); margin: 0 auto 22px;
+    }
+    .qresult h2 { font-family: var(--ft); font-size: clamp(26px, 6vw, 36px); color: var(--escuro); font-weight: 400; margin-bottom: 14px; }
+    .qresult p { font-size: 15px; color: #555; line-height: 1.7; margin-bottom: 10px; max-width: 460px; margin-left: auto; margin-right: auto; }
+    .qresult__box { background: var(--branco); border-radius: var(--r); padding: 22px; margin: 24px 0; text-align: left; }
+    .qresult__box h4 { font-family: var(--ft); font-size: 16px; color: var(--verde); font-weight: 400; margin-bottom: 14px; }
+    .qresult__row { display: flex; align-items: flex-start; gap: 11px; margin-bottom: 12px; font-size: 14px; color: #555; }
+    .qresult__row:last-child { margin-bottom: 0; }
+    .qresult__num { width: 26px; height: 26px; min-width: 26px; border-radius: 50%; background: var(--verde); color: white; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+
+    /* ── FOOTER ── */
+    .qfoot { border-top: 1px solid rgba(90,101,69,0.1); padding: 18px 0 26px; text-align: center; }
+    .qfoot img { height: 34px; border-radius: 3px; margin: 0 auto 8px; opacity: 0.55; }
+    .qfoot p { font-size: 12px; color: rgba(90,101,69,0.45); line-height: 1.9; }
+    .qfoot a { color: var(--verde); }
+
+    /* ── SEO INVISIBLE ── */
+    .qseo { font-size: 10px; color: rgba(90,101,69,0.18); text-align: center; padding: 6px 0 12px; line-height: 2; letter-spacing: 0.2px; }
+  </style>
+</head>
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PFZQ8HLK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <div class="qw">
+
+    <!-- HEADER -->
+    <header class="qhead">
+      <a href="/" class="qhead__logo"><img src="images/LOGO/logo.jpg" alt="Casa Baobá — Ambientes Planejados" /></a>
+      <div class="qhead__trust">
+        <span>Sem compromisso</span>
+        <span>Resposta em até 2h</span>
+      </div>
+    </header>
+
+    <!-- PROGRESS -->
+    <div class="qprog" id="qprog">
+      <div class="qprog__meta">
+        <span id="qprog-lbl">Pergunta 1 de 5</span>
+        <span id="qprog-pct">20%</span>
+      </div>
+      <div class="qprog__bar"><div class="qprog__fill" id="qprog-fill"></div></div>
+    </div>
+
+    <main class="quiz-main">
+
+      <!-- ══════════════ STEP 0 — BOAS-VINDAS ══════════════ -->
+      <section class="qs active" id="qs-0">
+        <span class="qs__tag">Quiz gratuito · Menos de 2 minutos</span>
+        <h1>Qual é o ambiente<br><em>dos seus sonhos?</em></h1>
+        <p class="qs__sub">Responda 5 perguntas rápidas e receba uma <strong>proposta personalizada</strong> com os melhores móveis planejados da Baixada Santista.</p>
+
+        <ul class="qlist">
+          <li>5 perguntas · menos de 2 minutos</li>
+          <li>Proposta 100% personalizada para o seu espaço</li>
+          <li>Sem compromisso · Atendemos toda a Baixada Santista</li>
+        </ul>
+
+        <button type="button" class="qbtn qbtn--main" onclick="goStep(1)">
+          Descobrir meu ambiente ideal <span class="arr">→</span>
+        </button>
+        <p class="qmicro">Mais de 50 projetos entregues em Praia Grande, Santos e região</p>
+      </section>
+
+      <!-- ══════════════ STEP 1 — AMBIENTE ══════════════ -->
+      <section class="qs" id="qs-1">
+        <h2>Qual ambiente você quer<br><em>transformar?</em></h2>
+        <p class="qs__sub">Selecione o principal ambiente do seu projeto</p>
+
+        <div class="qcards qcards--3">
+
+          <div class="qcard" onclick="selCard('ambiente','Cozinha',this,2)">
+            <div class="qcard__icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="26" height="18" rx="3"/><line x1="3" y1="14" x2="29" y2="14"/><circle cx="9" cy="11" r="1.5" fill="currentColor" stroke="none"/><circle cx="16" cy="11" r="1.5" fill="currentColor" stroke="none"/><circle cx="23" cy="11" r="1.5" fill="currentColor" stroke="none"/><rect x="9" y="17" width="9" height="5" rx="1.5"/></svg></div>
+            <span class="qcard__lbl">Cozinha</span>
+          </div>
+
+          <div class="qcard" onclick="selCard('ambiente','Quarto de Casal',this,2)">
+            <div class="qcard__icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 24V16"/><path d="M28 24V16"/><rect x="4" y="16" width="24" height="8" rx="2"/><path d="M4 16a4 4 0 0 1 4-4h3.5a2.5 2.5 0 0 1 0 5H4V16z"/><path d="M28 16a4 4 0 0 0-4-4h-3.5a2.5 2.5 0 0 0 0 5H28V16z"/><line x1="2" y1="24" x2="30" y2="24"/></svg></div>
+            <span class="qcard__lbl">Quarto Casal</span>
+          </div>
+
+          <div class="qcard" onclick="selCard('ambiente','Escritório / Home Office',this,2)">
+            <div class="qcard__icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="26" height="16" rx="2"/><line x1="12" y1="25" x2="20" y2="25"/><line x1="16" y1="21" x2="16" y2="25"/><line x1="3" y1="28" x2="29" y2="28"/></svg></div>
+            <span class="qcard__lbl">Escritório</span>
+          </div>
+
+          <div class="qcard" onclick="selCard('ambiente','Sala de Estar',this,2)">
+            <div class="qcard__icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21V14a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v7"/><rect x="2" y="17" width="4" height="7" rx="2"/><rect x="26" y="17" width="4" height="7" rx="2"/><rect x="6" y="21" width="20" height="4" rx="1.5"/><line x1="6" y1="25" x2="4" y2="29"/><line x1="26" y1="25" x2="28" y2="29"/></svg></div>
+            <span class="qcard__lbl">Sala</span>
+          </div>
+
+          <div class="qcard" onclick="selCard('ambiente','Quarto Infantil / Juvenil',this,2)">
+            <div class="qcard__icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="10" r="4"/><path d="M10 29V22a6 6 0 0 1 12 0v7"/><line x1="7" y1="29" x2="25" y2="29"/></svg></div>
+            <span class="qcard__lbl">Quarto Infantil / Juvenil</span>
+          </div>
+
+          <div class="qcard" onclick="selCard('ambiente','Apartamento Completo',this,2)">
+            <div class="qcard__icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14L16 3l13 11"/><path d="M6 13v16h20V13"/><rect x="13" y="19" width="6" height="10"/><rect x="7" y="17" width="4" height="4"/><rect x="21" y="17" width="4" height="4"/></svg></div>
+            <span class="qcard__lbl">Casa Completa</span>
+          </div>
+
+        </div>
+        <button type="button" class="qbtn qbtn--back" onclick="goStep(0)">← Voltar</button>
+      </section>
+
+      <!-- ══════════════ STEP 2 — ESTILO ══════════════ -->
+      <section class="qs" id="qs-2">
+        <div class="qs__ctx">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          <span id="q2-ctx">Seu projeto</span>
+        </div>
+        <h2>Qual estilo combina<br><em>com você?</em></h2>
+        <p class="qs__sub">Escolha o visual que representa o ambiente que você imagina</p>
+
+        <div class="qcards qcards--2">
+
+          <div class="qcard" onclick="selCard('estilo','Contemporâneo',this,3)">
+            <div class="qcard__icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="6" width="10" height="11" rx="1.5"/><rect x="18" y="6" width="10" height="11" rx="1.5"/><rect x="4" y="20" width="10" height="6" rx="1.5"/><rect x="18" y="20" width="10" height="6" rx="1.5"/></svg></div>
+            <span class="qcard__lbl">Contemporâneo</span>
+            <span class="qcard__sub">Linhas limpas, tons neutros</span>
+          </div>
+
+          <div class="qcard" onclick="selCard('estilo','Moderno',this,3)">
+            <div class="qcard__icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="4" width="24" height="24" rx="4"/><line x1="16" y1="4" x2="16" y2="28"/><line x1="4" y1="16" x2="28" y2="16"/></svg></div>
+            <span class="qcard__lbl">Moderno</span>
+            <span class="qcard__sub">Design ousado e sofisticado</span>
+          </div>
+
+          <div class="qcard" onclick="selCard('estilo','Rústico / Clássico',this,3)">
+            <div class="qcard__icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 28V12l12-8 12 8v16"/><rect x="12" y="18" width="8" height="10"/><line x1="4" y1="12" x2="28" y2="12"/></svg></div>
+            <span class="qcard__lbl">Rústico</span>
+            <span class="qcard__sub">Madeira, aconchego e tradição</span>
+          </div>
+
+          <div class="qcard" onclick="selCard('estilo','Minimalista',this,3)">
+            <div class="qcard__icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="7" y1="11" x2="25" y2="11"/><line x1="7" y1="16" x2="21" y2="16"/><line x1="7" y1="21" x2="17" y2="21"/></svg></div>
+            <span class="qcard__lbl">Minimalista</span>
+            <span class="qcard__sub">Menos é mais — pureza e forma</span>
+          </div>
+
+        </div>
+        <button type="button" class="qbtn qbtn--back" onclick="goStep(1)">← Voltar</button>
+      </section>
+
+      <!-- ══════════════ STEP 3 — LOCALIZAÇÃO ══════════════ -->
+      <section class="qs" id="qs-3">
+        <h2>Onde fica<br><em>o seu imóvel?</em></h2>
+        <p class="qs__sub">Precisamos da localização para verificar o atendimento e calcular prazos</p>
+
+        <div class="qfg">
+          <label for="q-cidade">Cidade *</label>
+          <input type="text" id="q-cidade" placeholder="Ex: Praia Grande, Santos, São Vicente…" autocomplete="address-level2" />
+          <p class="qfg__hint">Por favor, informe sua cidade.</p>
+        </div>
+        <div class="qfg">
+          <label for="q-bairro">Bairro <span style="font-weight:400;text-transform:none;letter-spacing:0">(opcional)</span></label>
+          <input type="text" id="q-bairro" placeholder="Ex: Aviação, Boqueirão, Gonzaga…" />
+        </div>
+
+        <button type="button" class="qbtn qbtn--main" onclick="goStep3()">
+          Continuar <span class="arr">→</span>
+        </button>
+        <button type="button" class="qbtn qbtn--back" onclick="goStep(2)">← Voltar</button>
+      </section>
+
+      <!-- ══════════════ STEP 4 — PRAZO ══════════════ -->
+      <section class="qs" id="qs-4">
+        <h2>Quando você quer<br><em>iniciar?</em></h2>
+        <p class="qs__sub">Isso nos ajuda a priorizar seu atendimento</p>
+
+        <div class="qopts">
+          <div class="qopt" onclick="selOpt('prazo','Em breve — próximo mês',this,5)">
+            <div class="qopt__radio"></div>
+            <div><span class="qopt__lbl">Em breve — próximo mês</span><span class="qopt__desc">Estou pronto para começar agora</span></div>
+          </div>
+          <div class="qopt" onclick="selOpt('prazo','Nos próximos 3 meses',this,5)">
+            <div class="qopt__radio"></div>
+            <div><span class="qopt__lbl">Nos próximos 3 meses</span><span class="qopt__desc">Ainda preciso organizar alguns detalhes</span></div>
+          </div>
+          <div class="qopt" onclick="selOpt('prazo','Entre 3 e 6 meses',this,5)">
+            <div class="qopt__radio"></div>
+            <div><span class="qopt__lbl">Entre 3 e 6 meses</span><span class="qopt__desc">Estou na fase de planejamento</span></div>
+          </div>
+          <div class="qopt" onclick="selOpt('prazo','Ainda estou planejando',this,5)">
+            <div class="qopt__radio"></div>
+            <div><span class="qopt__lbl">Ainda estou planejando</span><span class="qopt__desc">Quero me informar antes de decidir</span></div>
+          </div>
+        </div>
+
+        <button type="button" class="qbtn qbtn--back" onclick="goStep(3)">← Voltar</button>
+      </section>
+
+      <!-- ══════════════ STEP 5 — ORÇAMENTO (QUALIFICAÇÃO) ══════════════ -->
+      <section class="qs" id="qs-5">
+        <h2>Sobre o investimento<br><em>no seu projeto</em></h2>
+
+        <div class="qprice">
+          <div class="qprice__icon">🌿</div>
+          <div>
+            <h4>Móveis planejados de alto padrão</h4>
+            <p>Nossos projetos têm investimento a partir de <strong>R$ 12.000</strong>, parcelados em até <strong>10x sem juros</strong>. Cada detalhe reflete qualidade de material, acabamento e projeto personalizado.</p>
+          </div>
+        </div>
+
+        <p class="qs__sub">Esse valor está dentro do que você planejou?</p>
+
+        <div class="qopts">
+          <div class="qopt" onclick="selOpt('orcamento','✅ Sim, está dentro do meu planejamento',this,6)">
+            <div class="qopt__radio"></div>
+            <div><span class="qopt__lbl">Sim, está dentro do meu planejamento</span></div>
+          </div>
+          <div class="qopt" onclick="selOpt('orcamento','✅ Posso investir acima disso',this,6)">
+            <div class="qopt__radio"></div>
+            <div><span class="qopt__lbl">Posso investir acima disso</span></div>
+          </div>
+          <div class="qopt" onclick="selOpt('orcamento','🟡 Ainda não defini o valor — quero entender as opções',this,6)">
+            <div class="qopt__radio"></div>
+            <div><span class="qopt__lbl">Ainda não defini o valor</span><span class="qopt__desc">Quero entender melhor as opções antes de decidir</span></div>
+          </div>
+          <div class="qopt qopt--soft" onclick="selOpt('orcamento','__out__',this,'out')">
+            <div class="qopt__radio"></div>
+            <div><span class="qopt__lbl">Está acima do que planejei por enquanto</span></div>
+          </div>
+        </div>
+
+        <button type="button" class="qbtn qbtn--back" onclick="goStep(4)">← Voltar</button>
+      </section>
+
+      <!-- ══════════════ STEP 6 — DADOS ══════════════ -->
+      <section class="qs" id="qs-6">
+        <span class="qs__tag">Último passo ✓</span>
+        <h2>Quase lá!<br><em>Como podemos te chamar?</em></h2>
+        <p class="qs__sub">Preencha abaixo e nossa equipe entra em contato com sua proposta em até <strong>2 horas</strong>.</p>
+
+        <div class="qfg">
+          <label for="q-nome">Seu nome *</label>
+          <input type="text" id="q-nome" placeholder="Como podemos te chamar?" autocomplete="name" />
+          <p class="qfg__hint">Por favor, informe seu nome.</p>
+        </div>
+        <div class="qfg">
+          <label for="q-wa">WhatsApp *</label>
+          <input type="tel" id="q-wa" placeholder="(00) 00000-0000" maxlength="15" autocomplete="tel" />
+          <p class="qfg__hint">Informe um WhatsApp válido.</p>
+        </div>
+
+        <button type="button" class="qbtn qbtn--main" id="q-submit" onclick="submitLead()">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.86L.057 23.428a.75.75 0 0 0 .916.916l5.568-1.476A11.952 11.952 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.693-.528-5.217-1.448l-.374-.222-3.878 1.028 1.028-3.772-.241-.389A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Enviar minha proposta
+        </button>
+        <p class="qmicro">Seus dados são usados apenas para contato. Não compartilhamos com terceiros.</p>
+        <button type="button" class="qbtn qbtn--back" onclick="goStep(5)">← Voltar</button>
+      </section>
+
+      <!-- ══════════════ SUCESSO ══════════════ -->
+      <section class="qs" id="qs-success">
+        <div class="qresult">
+          <div class="qresult__ico">
+            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h2>Proposta enviada!<br><em>Até logo.</em></h2>
+          <p>Abrimos o WhatsApp com todas as informações do seu projeto. Nossa equipe analisa e entra em contato em até <strong>2 horas</strong>.</p>
+
+          <div class="qresult__box">
+            <h4>O que acontece agora:</h4>
+            <div class="qresult__row"><div class="qresult__num">1</div><p>Nosso consultor analisa seu perfil e o ambiente escolhido</p></div>
+            <div class="qresult__row"><div class="qresult__num">2</div><p>Entramos em contato pelo WhatsApp para agendar a visita técnica gratuita</p></div>
+            <div class="qresult__row"><div class="qresult__num">3</div><p>Desenvolvemos o projeto 3D personalizado e apresentamos a proposta completa</p></div>
+          </div>
+
+          <a href="/" class="qbtn qbtn--main" style="text-decoration:none; display:inline-flex; margin-top:8px;">
+            Ver mais projetos no site <span class="arr">→</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ══════════════ DESQUALIFICADO ══════════════ -->
+      <section class="qs" id="qs-out">
+        <div class="qresult">
+          <div class="qresult__ico" style="background:rgba(234,223,207,0.6)">
+            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h2>Obrigado pela<br><em>honestidade!</em></h2>
+          <p>Entendemos que o momento não é o ideal. Quando seu planejamento evoluir, estaremos prontos para transformar o seu espaço com o cuidado que ele merece.</p>
+          <p>Enquanto isso, fique à vontade para explorar nosso portfólio e se inspirar.</p>
+
+          <a href="/" class="qbtn qbtn--main" style="text-decoration:none; display:inline-flex; margin-top:20px;">
+            Ver portfólio de projetos
+          </a>
+          <br/>
+          <button type="button" class="qbtn qbtn--back" onclick="goStep(5)" style="margin-top:8px">← Reconsiderar</button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- SEO KEYWORDS (visíveis para mecanismos de busca) -->
+    <div class="qseo">
+      Móveis planejados Praia Grande · Cozinha planejada Santos · Quarto planejado Baixada Santista · Escritório planejado São Vicente · Ambientes planejados alto padrão Guarujá · Móveis sob medida Baixada Santista
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="qfoot">
+      <img src="images/LOGO/logo.jpg" alt="Casa Baobá" />
+      <p>
+        Casa Baobá — Ambientes Planejados<br>
+        Praia Grande · Santos · São Vicente · Baixada Santista<br>
+        <a href="tel:+5513997260565">(13) 99726-0565</a> · <a href="/">www.acasabaoba.com.br</a>
+      </p>
+    </footer>
+
+  </div><!-- /qw -->
+
+  <script>
+    // ─── CLICK IDs ─────────────────────────────────────────────
+    var _gclid  = new URLSearchParams(window.location.search).get('gclid')  || sessionStorage.getItem('gclid');
+    var _fbclid = new URLSearchParams(window.location.search).get('fbclid') || sessionStorage.getItem('fbclid');
+    if (_gclid)  sessionStorage.setItem('gclid',  _gclid);
+    if (_fbclid) sessionStorage.setItem('fbclid', _fbclid);
+
+    // ─── STATE ─────────────────────────────────────────────────
+    var WA  = '5513997260565';
+    var TQ  = 5; // total questions
+    var cur = 0;
+    var ans = { ambiente:'', estilo:'', cidade:'', bairro:'', prazo:'', orcamento:'' };
+
+    // ─── NAVIGATION ────────────────────────────────────────────
+    function goStep(n) {
+      var prev = document.querySelector('.qs.active');
+      if (prev) prev.classList.remove('active');
+      var next = document.getElementById('qs-' + n);
+      if (!next) return;
+      next.classList.add('active');
+      cur = n;
+      updateProg(n);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function updateProg(n) {
+      var el  = document.getElementById('qprog');
+      var lbl = document.getElementById('qprog-lbl');
+      var pct = document.getElementById('qprog-pct');
+      var bar = document.getElementById('qprog-fill');
+
+      if (typeof n === 'number' && n >= 1 && n <= TQ) {
+        el.style.visibility = 'visible';
+        var p = Math.round(n / TQ * 100);
+        bar.style.width = p + '%';
+        lbl.textContent = 'Pergunta ' + n + ' de ' + TQ;
+        pct.textContent = p + '%';
+      } else if (n === 6) {
+        el.style.visibility = 'visible';
+        bar.style.width = '100%';
+        lbl.textContent = 'Último passo!';
+        pct.textContent = '100%';
+      } else {
+        el.style.visibility = 'hidden';
+      }
+    }
+
+    // ─── CARD SELECTION ────────────────────────────────────────
+    function selCard(field, val, el, next) {
+      el.closest('.qcards').querySelectorAll('.qcard').forEach(function(c){ c.classList.remove('sel'); });
+      el.classList.add('sel');
+      ans[field] = val;
+      if (field === 'ambiente') {
+        var ctx = document.getElementById('q2-ctx');
+        if (ctx) ctx.textContent = val;
+      }
+      setTimeout(function(){ goStep(next); }, 330);
+    }
+
+    // ─── OPTION SELECTION ──────────────────────────────────────
+    function selOpt(field, val, el, next) {
+      el.closest('.qopts').querySelectorAll('.qopt').forEach(function(o){ o.classList.remove('sel'); });
+      el.classList.add('sel');
+
+      if (val === '__out__') {
+        ans.orcamento = 'Acima do planejamento atual';
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'quiz_desqualificado', lead_ambiente: ans.ambiente });
+        setTimeout(function(){ goStep('out'); }, 330);
+        return;
+      }
+
+      ans[field] = val;
+      setTimeout(function(){ goStep(next); }, 330);
+    }
+
+    // ─── STEP 3 (localização) ──────────────────────────────────
+    function goStep3() {
+      var cid = document.getElementById('q-cidade');
+      var v   = cid.value.trim();
+      if (!v) { cid.classList.add('err'); cid.focus(); return; }
+      cid.classList.remove('err');
+      ans.cidade = v;
+      ans.bairro = document.getElementById('q-bairro').value.trim();
+      goStep(4);
+    }
+
+    // ─── SUBMIT ────────────────────────────────────────────────
+    function submitLead() {
+      var nEl  = document.getElementById('q-nome');
+      var wEl  = document.getElementById('q-wa');
+      var nome = nEl.value.trim();
+      var wa   = wEl.value.trim();
+      var ok   = true;
+
+      nEl.classList.remove('err');
+      wEl.classList.remove('err');
+      if (!nome) { nEl.classList.add('err'); ok = false; }
+      if (!wa || wa.replace(/\D/g,'').length < 10) { wEl.classList.add('err'); ok = false; }
+      if (!ok) return;
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event:          'quiz_lead_qualificado',
+        lead_nome:      nome,
+        lead_ambiente:  ans.ambiente,
+        lead_orcamento: ans.orcamento
+      });
+
+      var loc = ans.cidade + (ans.bairro ? ' — Bairro: ' + ans.bairro : '');
+
+      var msg = '*Lead Qualificado — Casa Baobá Quiz* 🌿\n\n'
+        + '👤 *Nome:* ' + nome + '\n'
+        + '📱 *WhatsApp:* ' + wa + '\n'
+        + '📍 *Localização:* ' + loc + '\n'
+        + '🏠 *Ambiente:* ' + ans.ambiente + '\n'
+        + '🎨 *Estilo:* ' + ans.estilo + '\n'
+        + '📅 *Prazo:* ' + ans.prazo + '\n'
+        + '💰 *Orçamento:* ' + ans.orcamento;
+
+      if (_gclid)  msg += '\n\n[GCLID: ' + _gclid + ']';
+      if (_fbclid) msg += '\n[FBCLID: ' + _fbclid + ']';
+
+      window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(msg), '_blank');
+      goStep('success');
+    }
+
+    // ─── PHONE MASK + UX ───────────────────────────────────────
+    document.addEventListener('DOMContentLoaded', function() {
+      var waEl = document.getElementById('q-wa');
+      waEl.addEventListener('input', function() {
+        var v = this.value.replace(/\D/g,'').substring(0,11);
+        if (v.length > 6)      v = '(' + v.slice(0,2) + ') ' + v.slice(2,7) + '-' + v.slice(7);
+        else if (v.length > 2) v = '(' + v.slice(0,2) + ') ' + v.slice(2);
+        else if (v.length > 0) v = '(' + v;
+        this.value = v;
+      });
+
+      document.getElementById('q-nome').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') waEl.focus();
+      });
+      waEl.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') submitLead();
+      });
+
+      ['q-nome','q-wa','q-cidade'].forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) el.addEventListener('input', function(){ this.classList.remove('err'); });
+      });
+    });
+  </script>
+</body>
+</html>
