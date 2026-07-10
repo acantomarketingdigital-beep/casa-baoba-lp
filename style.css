@@ -1172,6 +1172,7 @@ em { font-style: italic; }
   height: 48px;
   width: auto;
   object-fit: contain;
+  border-radius: 10px;
 }
 
 .topnav__cta {
