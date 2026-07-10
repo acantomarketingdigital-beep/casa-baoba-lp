@@ -193,14 +193,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const lightboxImg   = document.getElementById('lightbox-img');
   const lightboxClose = document.getElementById('lightbox-close');
 
+  function openLightbox(src, alt) {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
   document.querySelectorAll('.portfolio-item').forEach(item => {
     item.style.cursor = 'zoom-in';
     item.addEventListener('click', () => {
       const img = item.querySelector('img');
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
-      lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden';
+      openLightbox(img.src, img.alt);
     });
   });
 
@@ -214,7 +218,56 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeLightbox(); fecharModal(); } });
 
 
-  // ─── 6. SMOOTH SCROLL (fallback para Safari) ──────────────────
+  // ─── 6. CARROSSÉIS — DRAG SCROLL + LIGHTBOX ──────────────────
+  document.querySelectorAll('[data-carousel]').forEach(carousel => {
+    const track   = carousel.querySelector('.carousel__track');
+    const btnPrev = carousel.querySelector('.carousel__btn--prev');
+    const btnNext = carousel.querySelector('.carousel__btn--next');
+
+    let isDragging = false;
+    let didDrag    = false;
+    let startX     = 0;
+    let scrollStart = 0;
+
+    track.addEventListener('mousedown', e => {
+      isDragging  = true;
+      didDrag     = false;
+      startX      = e.pageX - track.getBoundingClientRect().left;
+      scrollStart = track.scrollLeft;
+      track.classList.add('is-dragging');
+      e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', e => {
+      if (!isDragging) return;
+      const x    = e.pageX - track.getBoundingClientRect().left;
+      const walk = (x - startX) * 1.4;
+      if (Math.abs(walk) > 6) didDrag = true;
+      track.scrollLeft = scrollStart - walk;
+    });
+
+    document.addEventListener('mouseup', () => {
+      if (!isDragging) return;
+      isDragging = false;
+      track.classList.remove('is-dragging');
+      setTimeout(() => { didDrag = false; }, 60);
+    });
+
+    const SCROLL_AMT = 430;
+    btnPrev?.addEventListener('click', () => track.scrollBy({ left: -SCROLL_AMT, behavior: 'smooth' }));
+    btnNext?.addEventListener('click', () => track.scrollBy({ left:  SCROLL_AMT, behavior: 'smooth' }));
+
+    track.querySelectorAll('.carousel__item').forEach(item => {
+      item.addEventListener('click', () => {
+        if (didDrag) return;
+        const img = item.querySelector('img');
+        openLightbox(img.src, img.alt);
+      });
+    });
+  });
+
+
+  // ─── 8. SMOOTH SCROLL (fallback para Safari) ──────────────────
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
       const target = document.querySelector(anchor.getAttribute('href'));
