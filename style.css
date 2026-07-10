@@ -119,7 +119,7 @@ em { font-style: italic; }
   font-weight: 700;
   letter-spacing: 0.5px;
   padding: 16px 32px;
-  border-radius: 100px;
+  border-radius: 12px;
   transition: var(--transition);
   cursor: pointer;
   white-space: nowrap;
