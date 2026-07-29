@@ -10,7 +10,7 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Quiz gratuito: descubra o ambiente planejado ideal para você em 5 perguntas. Proposta personalizada de móveis planejados de alto padrão — Praia Grande, Santos e Baixada Santista." />
+  <meta name="description" content="Quiz gratuito: descubra o ambiente planejado ideal para você em 4 perguntas. Proposta personalizada de móveis planejados de alto padrão — Praia Grande, Santos e Baixada Santista." />
   <title>Quiz — Descubra Seu Ambiente Planejado Ideal | Casa Baobá</title>
 
   <meta name="geo.region" content="BR-SP" />
@@ -22,7 +22,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="pt_BR" />
   <meta property="og:title" content="Quiz — Descubra Seu Ambiente Planejado Ideal | Casa Baobá" />
-  <meta property="og:description" content="5 perguntas rápidas para receber uma proposta personalizada de móveis planejados de alto padrão na Baixada Santista." />
+  <meta property="og:description" content="4 perguntas rápidas para receber uma proposta personalizada de móveis planejados de alto padrão na Baixada Santista." />
   <meta property="og:url" content="https://www.acasabaoba.com.br/quiz" />
   <meta property="og:image" content="https://www.acasabaoba.com.br/images/COZINHA/1.jpeg" />
   <link rel="canonical" href="https://www.acasabaoba.com.br/quiz" />
@@ -365,12 +365,12 @@
 
       <!-- ══════════════ STEP 0 — BOAS-VINDAS ══════════════ -->
       <section class="qs active" id="qs-0">
-        <span class="qs__tag">Quiz gratuito · Menos de 2 minutos</span>
+        <span class="qs__tag">Quiz gratuito · Menos de 50 segundos</span>
         <h1>Qual é o ambiente<br><em>dos seus sonhos?</em></h1>
-        <p class="qs__sub">Responda 5 perguntas rápidas e receba uma <strong>proposta personalizada</strong> com os melhores móveis planejados da Baixada Santista.</p>
+        <p class="qs__sub">Responda 4 perguntas rápidas e receba uma <strong>proposta personalizada</strong> com os melhores móveis planejados da Baixada Santista.</p>
 
         <ul class="qlist">
-          <li>5 perguntas · menos de 2 minutos</li>
+          <li>4 perguntas · menos de 50 segundos</li>
           <li>Proposta 100% personalizada para o seu espaço</li>
           <li>Sem compromisso · Atendemos toda a Baixada Santista</li>
         </ul>
@@ -461,56 +461,35 @@
         <button type="button" class="qbtn qbtn--back" onclick="goStep(1)">← Voltar</button>
       </section>
 
-      <!-- ══════════════ STEP 3 — LOCALIZAÇÃO ══════════════ -->
+      <!-- ══════════════ STEP 3 — PRAZO ══════════════ -->
       <section class="qs" id="qs-3">
-        <h2>Onde fica<br><em>o seu imóvel?</em></h2>
-        <p class="qs__sub">Precisamos da localização para verificar o atendimento e calcular prazos</p>
-
-        <div class="qfg">
-          <label for="q-cidade">Cidade *</label>
-          <input type="text" id="q-cidade" placeholder="Ex: Praia Grande, Santos, São Vicente…" autocomplete="address-level2" />
-          <p class="qfg__hint">Por favor, informe sua cidade.</p>
-        </div>
-        <div class="qfg">
-          <label for="q-bairro">Bairro <span style="font-weight:400;text-transform:none;letter-spacing:0">(opcional)</span></label>
-          <input type="text" id="q-bairro" placeholder="Ex: Aviação, Boqueirão, Gonzaga…" />
-        </div>
-
-        <button type="button" class="qbtn qbtn--main" onclick="goStep3()">
-          Continuar <span class="arr">→</span>
-        </button>
-        <button type="button" class="qbtn qbtn--back" onclick="goStep(2)">← Voltar</button>
-      </section>
-
-      <!-- ══════════════ STEP 4 — PRAZO ══════════════ -->
-      <section class="qs" id="qs-4">
         <h2>Quando você quer<br><em>iniciar?</em></h2>
         <p class="qs__sub">Isso nos ajuda a priorizar seu atendimento</p>
 
         <div class="qopts">
-          <div class="qopt" onclick="selOpt('prazo','Em breve — próximo mês',this,5)">
+          <div class="qopt" onclick="selOpt('prazo','Em breve — próximo mês',this,4)">
             <div class="qopt__radio"></div>
             <div><span class="qopt__lbl">Em breve — próximo mês</span><span class="qopt__desc">Estou pronto para começar agora</span></div>
           </div>
-          <div class="qopt" onclick="selOpt('prazo','Nos próximos 3 meses',this,5)">
+          <div class="qopt" onclick="selOpt('prazo','Nos próximos 3 meses',this,4)">
             <div class="qopt__radio"></div>
             <div><span class="qopt__lbl">Nos próximos 3 meses</span><span class="qopt__desc">Ainda preciso organizar alguns detalhes</span></div>
           </div>
-          <div class="qopt" onclick="selOpt('prazo','Entre 3 e 6 meses',this,5)">
+          <div class="qopt" onclick="selOpt('prazo','Entre 3 e 6 meses',this,4)">
             <div class="qopt__radio"></div>
             <div><span class="qopt__lbl">Entre 3 e 6 meses</span><span class="qopt__desc">Estou na fase de planejamento</span></div>
           </div>
-          <div class="qopt" onclick="selOpt('prazo','Ainda estou planejando',this,5)">
+          <div class="qopt" onclick="selOpt('prazo','Ainda estou planejando',this,4)">
             <div class="qopt__radio"></div>
             <div><span class="qopt__lbl">Ainda estou planejando</span><span class="qopt__desc">Quero me informar antes de decidir</span></div>
           </div>
         </div>
 
-        <button type="button" class="qbtn qbtn--back" onclick="goStep(3)">← Voltar</button>
+        <button type="button" class="qbtn qbtn--back" onclick="goStep(2)">← Voltar</button>
       </section>
 
-      <!-- ══════════════ STEP 5 — ORÇAMENTO (QUALIFICAÇÃO) ══════════════ -->
-      <section class="qs" id="qs-5">
+      <!-- ══════════════ STEP 4 — ORÇAMENTO (QUALIFICAÇÃO) ══════════════ -->
+      <section class="qs" id="qs-4">
         <h2>Sobre o investimento<br><em>no seu projeto</em></h2>
 
         <div class="qprice">
@@ -524,15 +503,15 @@
         <p class="qs__sub">Esse valor está dentro do que você planejou?</p>
 
         <div class="qopts">
-          <div class="qopt" onclick="selOpt('orcamento','✅ Sim, está dentro do meu planejamento',this,6)">
+          <div class="qopt" onclick="selOpt('orcamento','✅ Sim, está dentro do meu planejamento',this,5)">
             <div class="qopt__radio"></div>
             <div><span class="qopt__lbl">Sim, está dentro do meu planejamento</span></div>
           </div>
-          <div class="qopt" onclick="selOpt('orcamento','✅ Posso investir acima disso',this,6)">
+          <div class="qopt" onclick="selOpt('orcamento','✅ Posso investir acima disso',this,5)">
             <div class="qopt__radio"></div>
             <div><span class="qopt__lbl">Posso investir acima disso</span></div>
           </div>
-          <div class="qopt" onclick="selOpt('orcamento','🟡 Ainda não defini o valor — quero entender as opções',this,6)">
+          <div class="qopt" onclick="selOpt('orcamento','🟡 Ainda não defini o valor — quero entender as opções',this,5)">
             <div class="qopt__radio"></div>
             <div><span class="qopt__lbl">Ainda não defini o valor</span><span class="qopt__desc">Quero entender melhor as opções antes de decidir</span></div>
           </div>
@@ -542,11 +521,11 @@
           </div>
         </div>
 
-        <button type="button" class="qbtn qbtn--back" onclick="goStep(4)">← Voltar</button>
+        <button type="button" class="qbtn qbtn--back" onclick="goStep(3)">← Voltar</button>
       </section>
 
-      <!-- ══════════════ STEP 6 — DADOS ══════════════ -->
-      <section class="qs" id="qs-6">
+      <!-- ══════════════ STEP 5 — DADOS ══════════════ -->
+      <section class="qs" id="qs-5">
         <span class="qs__tag">Último passo ✓</span>
         <h2>Quase lá!<br><em>Como podemos te chamar?</em></h2>
         <p class="qs__sub">Preencha abaixo e nossa equipe entra em contato com sua proposta em até <strong>2 horas</strong>.</p>
@@ -567,7 +546,7 @@
           Enviar minha proposta
         </button>
         <p class="qmicro">Seus dados são usados apenas para contato. Não compartilhamos com terceiros.</p>
-        <button type="button" class="qbtn qbtn--back" onclick="goStep(5)">← Voltar</button>
+        <button type="button" class="qbtn qbtn--back" onclick="goStep(4)">← Voltar</button>
       </section>
 
       <!-- ══════════════ SUCESSO ══════════════ -->
@@ -606,7 +585,7 @@
             Ver portfólio de projetos
           </a>
           <br/>
-          <button type="button" class="qbtn qbtn--back" onclick="goStep(5)" style="margin-top:8px">← Reconsiderar</button>
+          <button type="button" class="qbtn qbtn--back" onclick="goStep(4)" style="margin-top:8px">← Reconsiderar</button>
         </div>
       </section>
 
@@ -638,9 +617,9 @@
 
     // ─── STATE ─────────────────────────────────────────────────
     var WA  = '5513997260565';
-    var TQ  = 5; // total questions
+    var TQ  = 4; // total questions
     var cur = 0;
-    var ans = { ambiente:'', estilo:'', cidade:'', bairro:'', prazo:'', orcamento:'' };
+    var ans = { ambiente:'', estilo:'', prazo:'', orcamento:'' };
 
     // ─── NAVIGATION ────────────────────────────────────────────
     function goStep(n) {
@@ -666,7 +645,7 @@
         bar.style.width = p + '%';
         lbl.textContent = 'Pergunta ' + n + ' de ' + TQ;
         pct.textContent = p + '%';
-      } else if (n === 6) {
+      } else if (n === 5) {
         el.style.visibility = 'visible';
         bar.style.width = '100%';
         lbl.textContent = 'Último passo!';
@@ -705,17 +684,6 @@
       setTimeout(function(){ goStep(next); }, 330);
     }
 
-    // ─── STEP 3 (localização) ──────────────────────────────────
-    function goStep3() {
-      var cid = document.getElementById('q-cidade');
-      var v   = cid.value.trim();
-      if (!v) { cid.classList.add('err'); cid.focus(); return; }
-      cid.classList.remove('err');
-      ans.cidade = v;
-      ans.bairro = document.getElementById('q-bairro').value.trim();
-      goStep(4);
-    }
-
     // ─── SUBMIT ────────────────────────────────────────────────
     function submitLead() {
       var nEl  = document.getElementById('q-nome');
@@ -738,12 +706,9 @@
         lead_orcamento: ans.orcamento
       });
 
-      var loc = ans.cidade + (ans.bairro ? ' — Bairro: ' + ans.bairro : '');
-
       var msg = '*Lead Qualificado — Casa Baobá Quiz* 🌿\n\n'
         + '👤 *Nome:* ' + nome + '\n'
         + '📱 *WhatsApp:* ' + wa + '\n'
-        + '📍 *Localização:* ' + loc + '\n'
         + '🏠 *Ambiente:* ' + ans.ambiente + '\n'
         + '🎨 *Estilo:* ' + ans.estilo + '\n'
         + '📅 *Prazo:* ' + ans.prazo + '\n'
@@ -774,7 +739,7 @@
         if (e.key === 'Enter') submitLead();
       });
 
-      ['q-nome','q-wa','q-cidade'].forEach(function(id) {
+      ['q-nome','q-wa'].forEach(function(id) {
         var el = document.getElementById(id);
         if (el) el.addEventListener('input', function(){ this.classList.remove('err'); });
       });
