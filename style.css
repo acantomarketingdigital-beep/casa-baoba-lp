@@ -458,7 +458,7 @@ em { font-style: italic; }
 ═══════════════════════════════════════════ */
 .projetos {
   background: var(--creme-suave);
-  padding: clamp(32px, 4vw, 48px) 0 0;
+  padding: 16px 0 0;
 }
 
 .projetos__intro {
