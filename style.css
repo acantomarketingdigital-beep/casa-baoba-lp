@@ -188,7 +188,7 @@ em { font-style: italic; }
 ═══════════════════════════════════════════ */
 .hero {
   position: relative;
-  min-height: 55svh;
+  min-height: 45svh;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -1361,7 +1361,8 @@ em { font-style: italic; }
     grid-template-columns: 1fr;
   }
 
-  .hero__title { line-height: 1.2; }
+  .hero__title { line-height: 1.2; font-size: 26px; }
+  .hero__sub { font-size: 14px; margin-bottom: 28px; }
 
   .btn-cta--hero {
     font-size: 14px;
